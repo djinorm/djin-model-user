@@ -1,0 +1,31 @@
+{
+    "name": "djinorm/djin-model-user",
+    "type": "library",
+    "description": "DjinORM Model for store user info in database",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "XAKEPEHOK",
+            "email": "icq-475204@ya.ru"
+        }
+    ],
+    "require": {
+        "djinorm/djin": "^2.6",
+        "pragmarx/google2fa": "^2.0",
+        "pragmarx/recovery": "^0.1.0",
+        "respect/validation": "^1.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "DjinORM\\Models\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DjinORM\\Models\\": "tests/"
+        }
+    }
+}
