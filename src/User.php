@@ -25,7 +25,7 @@ class User implements ModelInterface
     protected $id;
 
     /** @var DateTimeImmutable */
-    protected $registerAt;
+    protected $registeredAt;
 
     /** @var string */
     protected $email;
@@ -41,14 +41,14 @@ class User implements ModelInterface
 
     public function __construct(string $email, Password $password)
     {
-        $this->registerAt = new DateTimeImmutable();
+        $this->registeredAt = new DateTimeImmutable();
         $this->setEmail($email);
         $this->password = $password->getPasswordHash();
     }
 
-    public function getRegisterAt(): DateTimeImmutable
+    public function getRegisteredAt(): DateTimeImmutable
     {
-        return $this->registerAt;
+        return $this->registeredAt;
     }
 
     public function getEmail(): string

@@ -45,11 +45,11 @@ class UserTest extends TestCase
         new User($email, $this->password);
     }
 
-    public function testGetRegisterAt()
+    public function testGetRegisteredAt()
     {
-        $this->assertInstanceOf(DateTimeImmutable::class, $this->user->getRegisterAt());
+        $this->assertInstanceOf(DateTimeImmutable::class, $this->user->getRegisteredAt());
         $expected = (new DateTimeImmutable())->format('Y-m-d H:i');
-        $actual = $this->user->getRegisterAt()->format('Y-m-d H:i');
+        $actual = $this->user->getRegisteredAt()->format('Y-m-d H:i');
         $this->assertEquals($expected, $actual);
     }
 
