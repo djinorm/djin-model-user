@@ -20,12 +20,12 @@
     },
     "autoload": {
         "psr-4": {
-            "DjinORM\\Models\\": "src/"
+            "DjinORM\\Models\\User\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "DjinORM\\Models\\": "tests/"
+            "DjinORM\\Models\\User\\": "tests/"
         }
     }
 }

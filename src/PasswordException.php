@@ -5,7 +5,7 @@
  * @author Timur Kasumov aka XAKEPEHOK
  */
 
-namespace DjinORM\Models;
+namespace DjinORM\Models\User;
 
 
 class PasswordException extends \Exception
