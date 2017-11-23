@@ -15,6 +15,7 @@ use DjinORM\Djin\Model\ModelTrait;
 use PragmaRX\Google2FA\Google2FA;
 use PragmaRX\Recovery\Recovery;
 use Respect\Validation\Validator;
+use XAKEPEHOK\Password\Password;
 
 class User implements ModelInterface
 {

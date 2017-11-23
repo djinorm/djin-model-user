@@ -10,6 +10,7 @@ namespace DjinORM\Models\User;
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
 use PragmaRX\Google2FA\Google2FA;
+use XAKEPEHOK\Password\Password;
 
 class UserTest extends TestCase
 {

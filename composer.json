@@ -13,7 +13,8 @@
         "djinorm/djin": "^2.6",
         "pragmarx/google2fa": "^2.0",
         "pragmarx/recovery": "^0.1.0",
-        "respect/validation": "^1.1"
+        "respect/validation": "^1.1",
+        "xakepehok/password": "^0.0.2"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.0"
