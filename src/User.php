@@ -40,6 +40,12 @@ class User implements ModelInterface
     /** @var array */
     protected $recoveryCodes = [];
 
+    /**
+     * User constructor.
+     * @param string $email
+     * @param Password $password
+     * @throws InvalidEmailException
+     */
     public function __construct(string $email, Password $password)
     {
         $this->registeredAt = new DateTimeImmutable();
@@ -57,6 +63,10 @@ class User implements ModelInterface
         return $this->email;
     }
 
+    /**
+     * @param string $email
+     * @throws InvalidEmailException
+     */
     public function setEmail(string $email)
     {
         if (!Validator::email()->validate($email)) {
@@ -95,8 +105,11 @@ class User implements ModelInterface
     public function generateRecoveryCodes(int $count = 10): array
     {
         $recovery = new Recovery();
-        $this->recoveryCodes = $recovery->setCount($count)->toArray();
-        return $this->recoveryCodes;
+        $recoveryCodes = $recovery->setCount($count)->toArray();
+        $this->recoveryCodes = array_map(function($code){
+            return password_hash($code, PASSWORD_BCRYPT);
+        }, $recoveryCodes);
+        return $recoveryCodes;
     }
 
     /**
@@ -108,8 +121,8 @@ class User implements ModelInterface
     public function useUpRecoveryCode(string $recoveryCode): bool
     {
         if (!empty($this->recoveryCodes)) {
-            foreach ($this->recoveryCodes as $i => $code) {
-                if ($recoveryCode == $code) {
+            foreach ($this->recoveryCodes as $i => $hash) {
+                if (password_verify($recoveryCode, $hash)) {
                     unset($this->recoveryCodes[$i]);
                     return true;
                 }
