@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "djinorm/djin": "<4",
+        "djinorm/djin": "dev-simple",
         "pragmarx/google2fa": "^2.0",
         "pragmarx/recovery": "^0.1.0",
         "respect/validation": "^1.1",
