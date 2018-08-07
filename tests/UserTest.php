@@ -18,13 +18,13 @@ class UserTest extends TestCase
     /** @var Password */
     private $password;
 
-    /** @var User */
+    /** @var TestUser */
     private $user;
 
     public function setUp()
     {
         $this->password = new Password('123456789');
-        $this->user = new User('user@example.com', $this->password);
+        $this->user = new TestUser('user@example.com', $this->password);
     }
 
     public function invalidEmailProvider()
@@ -43,7 +43,7 @@ class UserTest extends TestCase
     public function testConstructInvalidEmail($email)
     {
         $this->expectException(InvalidEmailException::class);
-        new User($email, $this->password);
+        new TestUser($email, $this->password);
     }
 
     public function testGetRegisteredAt()
