@@ -17,7 +17,7 @@ use PragmaRX\Recovery\Recovery;
 use Respect\Validation\Validator;
 use XAKEPEHOK\Password\Password;
 
-class User implements ModelInterface
+abstract class User implements ModelInterface
 {
 
     use ModelTrait;
@@ -45,6 +45,7 @@ class User implements ModelInterface
      * @param string $email
      * @param Password $password
      * @throws InvalidEmailException
+     * @throws \Exception
      */
     public function __construct(string $email, Password $password)
     {
