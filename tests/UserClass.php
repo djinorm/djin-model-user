@@ -8,9 +8,9 @@
 namespace DjinORM\Models\User;
 
 
+
 class UserClass extends User
 {
-
     public static function getModelName(): string
     {
         return 'user';

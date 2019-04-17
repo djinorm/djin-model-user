@@ -11,7 +11,6 @@ namespace DjinORM\Models\User;
 use DateTimeImmutable;
 use DjinORM\Djin\Id\Id;
 use DjinORM\Djin\Model\ModelInterface;
-use DjinORM\Djin\Model\ModelTrait;
 use PragmaRX\Google2FA\Google2FA;
 use PragmaRX\Recovery\Recovery;
 use Respect\Validation\Validator;
@@ -19,8 +18,6 @@ use XAKEPEHOK\Password\Password;
 
 abstract class User implements ModelInterface
 {
-
-    use ModelTrait;
 
     /** @var Id */
     protected $id;
@@ -49,9 +46,15 @@ abstract class User implements ModelInterface
      */
     public function __construct(string $email, Password $password)
     {
+        $this->id = new Id();
         $this->registeredAt = new DateTimeImmutable();
         $this->setEmail($email);
         $this->password = $password->getPasswordHash();
+    }
+
+    public function getId(): Id
+    {
+        return $this->id;
     }
 
     public function getRegisteredAt(): DateTimeImmutable
